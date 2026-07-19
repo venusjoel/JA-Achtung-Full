@@ -1,0 +1,60 @@
+name: test
+on: [push, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Install iverilog
+        shell: bash
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      # Set Python up and install cocotb
+      - name: Setup python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install Python packages
+        shell: bash
+        run: pip install -r test/requirements.txt
+
+      - name: Verify standalone 1x2 source mirror
+        shell: bash
+        run: |
+          diff -ru src targets/1x2-working-game/src
+          cmp info.yaml targets/1x2-working-game/info.yaml
+
+      - name: Run tests
+        run: |
+           cd test
+           make clean
+           make
+           cd ..
+           python tools/check_junit.py test/results.xml \
+             --expected-tests 1 --test-name test_project
+
+      - name: Test Summary
+        uses: test-summary/action@37b508cfee6d4d080eedd00b5bb240a6a784a6a5 # v2.6
+        with:
+          paths: "test/results.xml"
+        if: always()
+
+      - name: upload waveform and test results
+        if: success() || failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-results
+          overwrite: true
+          path: |
+            test/tb.fst
+            test/results.xml
+            test/output/*

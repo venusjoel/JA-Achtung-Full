@@ -1,0 +1,27 @@
+{
+  "config": {
+    "frame_w": 64,
+    "frame_h": 48,
+    "start1_x": 10,
+    "start2_x": 53,
+    "start_y": 24,
+    "turn_cooldown": 0
+  },
+  "expected": {
+    "death_player": "p2",
+    "death_reason": "wall",
+    "p1_alive": true,
+    "p2_alive": false
+  },
+  "frames": 60,
+  "default_buttons": 0,
+  "events": [
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "start": 0,
+      "end": 16
+    }
+  ]
+}

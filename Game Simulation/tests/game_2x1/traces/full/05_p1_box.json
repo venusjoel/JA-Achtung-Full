@@ -1,0 +1,42 @@
+{
+  "config": {
+    "frame_w": 640,
+    "frame_h": 480,
+    "start1_x": 100,
+    "start2_x": 540,
+    "start_y": 240,
+    "turn_cooldown": 0
+  },
+  "frames": 800,
+  "default_buttons": 0,
+  "events": [
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 40,
+      "end": 49
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 120,
+      "end": 129
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 200,
+      "end": 209
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 280,
+      "end": 289
+    }
+  ]
+}

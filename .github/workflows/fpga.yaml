@@ -1,0 +1,39 @@
+name: fpga
+
+on:
+  push:
+    # Comment out (or remove) the following line to run the FPGA workflow on every push:
+    branches: none
+  workflow_dispatch:
+
+jobs:
+  fpga:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Remove prior FPGA artifact before a rerun
+        if: ${{ github.run_attempt > 1 }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          gh api --paginate \
+            "/repos/$REPOSITORY/actions/runs/$RUN_ID/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.name == "fpga_bitstream") | .id' |
+          while IFS= read -r artifact_id; do
+            gh api --method DELETE \
+              "/repos/$REPOSITORY/actions/artifacts/$artifact_id"
+          done
+
+      - name: FPGA bitstream for TT ASIC Sim (ICE40UP5K)
+        uses: TinyTapeout/tt-gds-action/fpga/ice40up5k@ttsky26c

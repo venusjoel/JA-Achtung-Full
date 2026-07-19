@@ -1,0 +1,17 @@
+# Tiny Tapeout hardening and provenance are produced on Linux. Keep all
+# authoritative text inputs byte-stable across Windows and Linux clones.
+*         text=auto eol=lf
+*.v       text eol=lf
+*.sv      text eol=lf
+*.py      text eol=lf
+*.json    text eol=lf
+*.yaml    text eol=lf
+*.yml     text eol=lf
+*.md      text eol=lf
+*.txt     text eol=lf
+Makefile  text eol=lf
+
+*.gds     binary
+*.png     binary
+*.fst     binary
+*.vcd     binary

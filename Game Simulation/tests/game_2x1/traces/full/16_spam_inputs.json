@@ -1,0 +1,154 @@
+{
+  "config": {
+    "frame_w": 640,
+    "frame_h": 480,
+    "start1_x": 100,
+    "start2_x": 540,
+    "start_y": 240,
+    "turn_cooldown": 0
+  },
+  "frames": 800,
+  "default_buttons": 0,
+  "events": [
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 80,
+      "end": 89
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "start": 100,
+      "end": 109
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 120,
+      "end": 129
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "start": 140,
+      "end": 149
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 160,
+      "end": 169
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "start": 180,
+      "end": 189
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 200,
+      "end": 209
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "start": 220,
+      "end": 229
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 240,
+      "end": 249
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "start": 260,
+      "end": 269
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 280,
+      "end": 289
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "start": 300,
+      "end": 309
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 320,
+      "end": 329
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "start": 340,
+      "end": 349
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 360,
+      "end": 369
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "start": 380,
+      "end": 389
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 400,
+      "end": 409
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "start": 420,
+      "end": 429
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "start": 440,
+      "end": 449
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "start": 460,
+      "end": 469
+    }
+  ]
+}

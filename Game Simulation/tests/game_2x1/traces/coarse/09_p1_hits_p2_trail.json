@@ -1,0 +1,38 @@
+{
+  "config": {
+    "frame_w": 64,
+    "frame_h": 48,
+    "start1_x": 10,
+    "start2_x": 53,
+    "start_y": 24,
+    "turn_cooldown": 0
+  },
+  "expected": {
+    "death_player": "p1",
+    "death_reason": "opponent",
+    "p1_alive": false,
+    "p2_alive": true
+  },
+  "frames": 60,
+  "default_buttons": 0,
+  "events": [
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 4
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 12
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 20
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+name: gds-1x2
+
+on:
+  push:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gds:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Verify standalone 1x2 source mirror
+        shell: bash
+        run: |
+          diff -ru src targets/1x2-working-game/src
+          cmp info.yaml targets/1x2-working-game/info.yaml
+
+      - name: Build GDS
+        uses: TinyTapeout/tt-gds-action@ttsky26c
+        with:
+          pdk: sky130A
+
+      - name: Check hardening metrics
+        shell: bash
+        run: python tools/check_harden_metrics.py runs/wokwi/final/metrics.json --target 1x2
+
+  precheck:
+    needs: gds
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Run Tiny Tapeout precheck
+        uses: TinyTapeout/tt-gds-action/precheck@ttsky26c
+
+  gl_test:
+    needs: gds
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Run gate-level test
+        uses: TinyTapeout/tt-gds-action/gl_test@ttsky26c
+
+      - name: Validate gate-level result
+        shell: bash
+        run: python tools/check_junit.py test/results.xml --expected-tests 1 --test-name test_project
+
+  viewer:
+    needs: gds
+    # The split branches live in a private staging repository. The final
+    # public standalone repository runs the viewer when this branch is main.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy GDS viewer
+        uses: TinyTapeout/tt-gds-action/viewer@ttsky26c

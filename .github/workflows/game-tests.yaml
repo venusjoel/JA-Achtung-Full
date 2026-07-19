@@ -1,0 +1,84 @@
+name: game-tests
+on: [push, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  game-tests:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [game_2x1]
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+
+      - name: Install iverilog
+        shell: bash
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      - name: Setup python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install Python packages
+        shell: bash
+        run: pip install -r test/requirements.txt
+
+      - name: Verify committed traces are reproducible
+        shell: bash
+        run: |
+          python "Game Simulation/tests/${{ matrix.target }}/run.py" --gen
+          git diff --exit-code -- "Game Simulation/tests/${{ matrix.target }}/traces"
+          test -z "$(git status --porcelain --untracked-files=all -- "Game Simulation/tests/${{ matrix.target }}/traces")"
+
+      - name: VGA display test (real QSPI PSRAM read path, 640x480)
+        shell: bash
+        run: python "Game Simulation/tests/${{ matrix.target }}/run.py" --test vga --full-vga
+
+      - name: Game-logic suite vs Python model (full 640x480)
+        shell: bash
+        run: python "Game Simulation/tests/${{ matrix.target }}/run.py" --test suite --mode full
+
+      - name: Accelerated game-logic suite (coarse 64x48)
+        shell: bash
+        run: python "Game Simulation/tests/${{ matrix.target }}/run.py" --test suite --mode coarse
+
+      - name: Full-system smoke (gamepad + QSPI + arbitration)
+        shell: bash
+        run: python "Game Simulation/tests/${{ matrix.target }}/run.py" --test system
+
+      - name: Upload result maps
+        if: success() || failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: maps-${{ matrix.target }}
+          overwrite: true
+          path: |
+            Game Simulation/tests/out/${{ matrix.target }}/**/*.txt
+
+  ram-tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+
+      - name: Install iverilog
+        shell: bash
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      - name: Setup python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install Python packages
+        shell: bash
+        run: pip install -r test/requirements.txt
+
+      - name: Test the 1x2 PSRAM and display-streamer implementations
+        shell: bash
+        run: python "Game Simulation/tests/ram/run.py" --target 1x2-working-game --rebuild

@@ -1,0 +1,2265 @@
+{
+  "config": {
+    "frame_w": 64,
+    "frame_h": 48,
+    "start1_x": 10,
+    "start2_x": 53,
+    "start_y": 24,
+    "turn_cooldown": 0
+  },
+  "frames": 800,
+  "default_buttons": 0,
+  "events": [
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 0
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 3
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 6
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 8
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 10
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 15
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 17
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 23
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 24
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 26
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 29
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 30
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 33
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 35
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 36
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 39
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 40
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 41
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 42
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 43
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 48
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 49
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 54
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 55
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 56
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 57
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 61
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 62
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 69
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 72
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "start": 74,
+      "end": 75
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 79
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 83
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 84
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 87
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 88
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 89
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 91
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 98
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 99
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 102
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 103
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 105
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 106
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 107
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 109
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 111
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 112
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 115
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 117
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 124
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 127
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 128
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 131
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 134
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 136
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 137
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 139
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 144
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 151
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 154
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 155
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 156
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 157
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 158
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 160
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 162
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 165
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 168
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 170
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 171
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 174
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 176
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 178
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 179
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 181
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 183
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 187
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 188
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 189
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 193
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 195
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 198
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 199
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 203
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 205
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 206
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 207
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 208
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 209
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 212
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 213
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 214
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 219
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 221
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "start": 223,
+      "end": 224
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 225
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 226
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 228
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 236
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 237
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 240
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 243
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 245
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 249
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 251
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 252
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 253
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 255
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 256
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 258
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 266
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 269
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 273
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 275
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 276
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 277
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 279
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 280
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 281
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 283
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 285
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 296
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 297
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 298
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 303
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 304
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 308
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 309
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 311
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 312
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 313
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 317
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 318
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 319
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 320
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 322
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 323
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 327
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 330
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 332
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 334
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 338
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 339
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 341
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 343
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 345
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 348
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 350
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 352
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 353
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 355
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 356
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 358
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 363
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 364
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 365
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 366
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 368
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 369
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 370
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 371
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 374
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 377
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 378
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 379
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 382
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 384
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 388
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 390
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 391
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 393
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 394
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 395
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 397
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 400
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 403
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 405
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 406
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 408
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 411
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 417
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 418
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 420
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 426
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 427
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 428
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 431
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 434
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 435
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 442
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 446
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 450
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 451
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 453
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 456
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 460
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 463
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 467
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 470
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 471
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 474
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 476
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 478
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 479
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 488
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 489
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 493
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 497
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 498
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 500
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "start": 501,
+      "end": 502
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 503
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 506
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 510
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 512
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 513
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 514
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 519
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 523
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 524
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 526
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 527
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 530
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 541
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 542
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 543
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 544
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 545
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 546
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 547
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 548
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 549
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 550
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 552
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 553
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 555
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 556
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 558
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 561
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 563
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 568
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 570
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 572
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 573
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 581
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 582
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 585
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 586
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 588
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 593
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 594
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 599
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "start": 600,
+      "end": 601
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 602
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 603
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 608
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 610
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 611
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 613
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 615
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 616
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 617
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 618
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 619
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 622
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 624
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 625
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 629
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 632
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 635
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 638
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 639
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 640
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 642
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 643
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 649
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 651
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 652
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 655
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 656
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 658
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 659
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 662
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 664
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 665
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 666
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 675
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 678
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 684
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 686
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 687
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 688
+    },
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "frame": 690
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 693
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 695
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 697
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 699
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 700
+    },
+    {
+      "buttons": [
+        "p2_left",
+        "p2_boost"
+      ],
+      "frame": 701
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 703
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 705
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 709
+    },
+    {
+      "buttons": [
+        "p1_right"
+      ],
+      "frame": 710
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 712
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 713
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 714
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 717
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 720
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 721
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 725
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 727
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 730
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_right"
+      ],
+      "frame": 731
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 740
+    },
+    {
+      "buttons": [
+        "p1_boost"
+      ],
+      "frame": 741
+    },
+    {
+      "buttons": [
+        "p1_left"
+      ],
+      "frame": 749
+    },
+    {
+      "buttons": [
+        "p2_left"
+      ],
+      "frame": 752
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 753
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "frame": 757
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 760
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_right"
+      ],
+      "frame": 763
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 777
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 780
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p2_boost"
+      ],
+      "frame": 783
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p2_left"
+      ],
+      "frame": 786
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost"
+      ],
+      "frame": 789
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p2_left"
+      ],
+      "frame": 792
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 794
+    },
+    {
+      "buttons": [
+        "p1_right",
+        "p1_boost"
+      ],
+      "frame": 797
+    },
+    {
+      "buttons": [
+        "p2_boost"
+      ],
+      "frame": 798
+    }
+  ]
+}

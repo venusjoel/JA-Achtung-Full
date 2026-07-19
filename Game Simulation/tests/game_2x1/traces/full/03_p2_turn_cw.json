@@ -1,0 +1,21 @@
+{
+  "config": {
+    "frame_w": 640,
+    "frame_h": 480,
+    "start1_x": 100,
+    "start2_x": 540,
+    "start_y": 240,
+    "turn_cooldown": 0
+  },
+  "frames": 600,
+  "default_buttons": 0,
+  "events": [
+    {
+      "buttons": [
+        "p2_right"
+      ],
+      "start": 160,
+      "end": 169
+    }
+  ]
+}

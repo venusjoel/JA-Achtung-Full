@@ -1,0 +1,56 @@
+{
+  "config": {
+    "frame_w": 640,
+    "frame_h": 480,
+    "start1_x": 100,
+    "start2_x": 540,
+    "start_y": 240,
+    "turn_cooldown": 0
+  },
+  "frames": 800,
+  "default_buttons": 0,
+  "events": [
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "start": 100,
+      "end": 119
+    },
+    {
+      "buttons": [
+        "p1_left",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "start": 120,
+      "end": 129
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "start": 130,
+      "end": 139
+    },
+    {
+      "buttons": [
+        "p2_right",
+        "p1_boost",
+        "p2_boost"
+      ],
+      "start": 140,
+      "end": 149
+    },
+    {
+      "buttons": [
+        "p1_boost",
+        "p2_boost"
+      ],
+      "start": 150,
+      "end": 400
+    }
+  ]
+}

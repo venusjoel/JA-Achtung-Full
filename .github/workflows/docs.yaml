@@ -1,0 +1,37 @@
+name: docs
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  docs:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Remove prior docs artifact before a rerun
+        if: ${{ github.run_attempt > 1 }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          gh api --paginate \
+            "/repos/$REPOSITORY/actions/runs/$RUN_ID/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.name == "PDF") | .id' |
+          while IFS= read -r artifact_id; do
+            gh api --method DELETE \
+              "/repos/$REPOSITORY/actions/artifacts/$artifact_id"
+          done
+
+      - name: Build docs
+        uses: TinyTapeout/tt-gds-action/docs@ttsky26c
