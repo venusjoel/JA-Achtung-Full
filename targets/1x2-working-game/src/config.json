@@ -81,9 +81,9 @@
   "//": "Post-GRT timing cleanup closes the movement/collision path before final routing.",
   "RUN_POST_GRT_RESIZER_TIMING": true,
 
-  "//": "Measured strongest post-route repair that still legalizes the shared gap-only head marker.",
+  "//": "Validated 45% post-route slew repair reduces electrical advisories while preserving clean signoff.",
   "RUN_POST_GRT_DESIGN_REPAIR": true,
-  "GRT_DESIGN_REPAIR_MAX_SLEW_PCT": 37,
+  "GRT_DESIGN_REPAIR_MAX_SLEW_PCT": 45,
   "GRT_DESIGN_REPAIR_MAX_CAP_PCT": 50,
 
   "//": "Don't generate power rings",

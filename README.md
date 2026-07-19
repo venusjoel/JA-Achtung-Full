@@ -22,10 +22,13 @@ Tiny Tapeout footprint in `info.yaml` is `1x2`.
 The exact HDL and configuration in this project were validated with LibreLane
 3.0.3 and sky130A PDK revision `8afc8346`:
 
-- standard-cell area: 31,142.4 µm²
-- final utilization: 90.9124%
-- worst setup slack: +0.57704 ns
-- worst hold slack: +0.03362 ns
+- standard-cell area: 31,468.9 µm²
+- final utilization: 91.8657%
+- worst setup slack: +1.55711 ns
+- worst hold slack: +0.03365 ns
+- worst-corner max-slew advisories: 259
+- worst-corner max-capacitance advisories: 2
+- worst-corner max-fanout advisories: 0
 - setup, hold, routing DRC, Magic DRC, LVS, and antenna violations: 0
 - Tiny Tapeout precheck: 15/15 passed
 - powered gate-level QSPI/VGA smoke test: passed
