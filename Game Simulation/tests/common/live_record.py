@@ -47,8 +47,7 @@ def record_live_trace(target: str, trace_path: str | Path, *, frames: int | None
     except ModuleNotFoundError as exc:
         raise SystemExit(
             "Live play recording needs pygame in this Python environment.\n"
-            "In WSL, install it with:\n"
-            "  /root/.venvs/cocotb/bin/python -m pip install pygame"
+            "From the repository root, run: ./setup-live"
         ) from exc
 
     if frames is None:

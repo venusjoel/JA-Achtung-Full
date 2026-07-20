@@ -52,8 +52,15 @@ power-up sequence and pinout.
 ## Play it live
 
 You can play the game yourself and have the hardware checked against your run.
-From the repo root, in an environment with `iverilog` and a Python that has
-`cocotb` and `pygame`:
+Use an Ubuntu/WSL terminal in the repo root. The first time on each computer,
+run the setup file (it installs/checks Icarus Verilog and creates an isolated,
+pinned Python environment):
+
+```sh
+./setup-live
+```
+
+After that, no environment activation is needed:
 
 ```sh
 ./1x2 --live
@@ -67,9 +74,10 @@ once both players have locked. In game, `A`/`D` steer player 1 and the
 left/right arrows steer player 2, with `W` and `Up` for boost; `Esc` or `Q`
 ends the recording. Add `--mode coarse` for a quick low-resolution session.
 
-`./1x2` forwards every other runner flag too (`--test vga`, `--test suite`,
-`--gen`, …). It is a developer convenience only — no CI workflow uses it and it
-does not affect the hardware, the Tiny Tapeout test harness, or GDS signoff.
+`./1x2` without `--live` runs the full automatic test set. It also forwards every
+other runner flag (`--test vga`, `--test suite`, `--gen`, …). These files are
+developer conveniences only — no CI workflow uses them and they do not affect
+the hardware, the Tiny Tapeout test harness, or GDS signoff.
 
 ## DE10-Lite FPGA
 

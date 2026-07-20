@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+# One-time setup for the 1x2 live game and HDL tests on Ubuntu/WSL.
+set -euo pipefail
+
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+venv_dir="$HOME/.venvs/ja-achtung"
+
+if ! command -v iverilog >/dev/null 2>&1; then
+  if command -v apt-get >/dev/null 2>&1; then
+    echo "Installing Icarus Verilog..."
+    if [ "$(id -u)" -eq 0 ]; then
+      apt-get update
+      apt-get install -y iverilog
+    elif command -v sudo >/dev/null 2>&1; then
+      sudo apt-get update
+      sudo apt-get install -y iverilog
+    else
+      echo "Icarus Verilog is missing and sudo is unavailable." >&2
+      echo "Install the 'iverilog' package, then run ./setup-live again." >&2
+      exit 1
+    fi
+  else
+    echo "Icarus Verilog is missing." >&2
+    echo "Install 'iverilog' with your Linux package manager, then run ./setup-live again." >&2
+    exit 1
+  fi
+fi
+
+uv_bin="$(command -v uv || true)"
+if [ -z "$uv_bin" ]; then
+  echo "Installing uv from its official installer..."
+  if command -v curl >/dev/null 2>&1; then
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+  elif command -v wget >/dev/null 2>&1; then
+    wget -qO- https://astral.sh/uv/install.sh | sh
+  else
+    echo "Install curl or wget, then run ./setup-live again." >&2
+    exit 1
+  fi
+
+  uv_bin="$(command -v uv || true)"
+  if [ -z "$uv_bin" ] && [ -x "$HOME/.local/bin/uv" ]; then
+    uv_bin="$HOME/.local/bin/uv"
+  fi
+fi
+
+if [ -z "$uv_bin" ]; then
+  echo "uv was installed but could not be found. Open a new terminal and run ./setup-live again." >&2
+  exit 1
+fi
+
+mkdir -p "$(dirname "$venv_dir")"
+if [ ! -x "$venv_dir/bin/python" ]; then
+  echo "Creating the JA Achtung Python 3.13 environment..."
+  "$uv_bin" venv --python 3.13 "$venv_dir"
+fi
+
+echo "Installing the pinned live-test packages..."
+"$uv_bin" pip install --python "$venv_dir/bin/python" -r "$here/requirements-live.txt"
+
+"$venv_dir/bin/python" -c "import cocotb, pygame"
+
+echo
+echo "Setup complete. From this folder, run:"
+echo "  ./1x2 --live"

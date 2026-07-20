@@ -18,23 +18,24 @@ set -euo pipefail
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$here"
 
-# Choose a Python: an active virtualenv, then a repo-local .venv, then python3.
-if [ -n "${VIRTUAL_ENV:-}" ] && [ -x "$VIRTUAL_ENV/bin/python" ]; then
-  py="$VIRTUAL_ENV/bin/python"
-elif [ -x "$here/.venv/bin/python" ]; then
+# Prefer the environment created by ./setup-live; activation is not required.
+if [ -x "$here/.venv/bin/python" ]; then
   py="$here/.venv/bin/python"
+elif [ -x "$HOME/.venvs/ja-achtung/bin/python" ]; then
+  py="$HOME/.venvs/ja-achtung/bin/python"
+elif [ -n "${VIRTUAL_ENV:-}" ] && [ -x "$VIRTUAL_ENV/bin/python" ]; then
+  py="$VIRTUAL_ENV/bin/python"
 else
   py="$(command -v python3 || command -v python || true)"
 fi
 if [ -z "${py:-}" ]; then
-  echo "No Python found. Install Python 3, then: pip install cocotb pygame" >&2
+  echo "No Python found. Run ./setup-live once from this repository." >&2
   exit 1
 fi
 
 # Fail early with a clear hint if the test dependencies are missing.
 if ! "$py" -c "import cocotb" 2>/dev/null; then
-  echo "cocotb is not installed for: $py" >&2
-  echo "  \"$py\" -m pip install cocotb pygame   # pygame only needed for --live" >&2
+  echo "The live-test environment is not ready. Run: ./setup-live" >&2
   exit 1
 fi
 
