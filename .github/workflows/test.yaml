@@ -33,6 +33,9 @@ jobs:
           diff -ru src targets/1x2-working-game/src
           cmp info.yaml targets/1x2-working-game/info.yaml
 
+      - name: Test hardening-metric policy
+        run: python tools/test_check_harden_metrics.py -q
+
       - name: Run tests
         run: |
            cd test

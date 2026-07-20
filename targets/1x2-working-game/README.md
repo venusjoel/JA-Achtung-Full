@@ -5,6 +5,6 @@ This directory is a byte-for-byte mirror of the standalone root `src/` and
 tests, root Tiny Tapeout project, and validated physical configuration cannot
 silently diverge.
 
-Validated LibreLane 3.0.3 result: 31,142.4 µm² standard-cell area, 90.9124%
-utilization, +0.57704 ns setup slack, +0.03362 ns hold slack, and zero hard
+Validated LibreLane 3.0.3 result: 31,468.9 µm² standard-cell area, 91.8657%
+utilization, +1.55711 ns setup slack, +0.03365 ns hold slack, and zero hard
 signoff violations.

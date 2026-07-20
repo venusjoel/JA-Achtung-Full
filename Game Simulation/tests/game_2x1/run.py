@@ -9,7 +9,7 @@ Examples (from the repo root, inside the WSL cocotb venv):
   python "Game Simulation/tests/game_2x1/run.py" --test game --mode full --trace 20_fuzz
   python "Game Simulation/tests/game_2x1/run.py" --test suite
   python "Game Simulation/tests/game_2x1/run.py" --test live  play pygame, then HDL compare
-  python "Game Simulation/tests/game_2x1/run.py"              vga + coarse suite + full subset
+  python "Game Simulation/tests/game_2x1/run.py"              full VGA + full suite + system smoke
 """
 
 from __future__ import annotations

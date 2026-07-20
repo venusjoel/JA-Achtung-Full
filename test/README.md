@@ -2,7 +2,7 @@
 
 This cocotb testbench exercises the standalone 1x2 Tiny Tapeout project,
 `tt_um_ja_achtung_1x2`. Its Makefile lists the exact source set from
-`targets/1x2-working-game`.
+the repository-root `src/` directory submitted to Tiny Tapeout.
 
 ## How to run
 
@@ -14,10 +14,8 @@ make -B
 
 The pinned Tiny Tapeout gate-level action supplies the powered post-route
 netlist and runs this testbench with `GATES=yes`. For a local gate-level run,
-copy the powered final netlist to `gate_level_netlist.v`, set `PDK_ROOT`, and
+copy the powered final netlist to `gate_level_netlist.v`, set `PDK_ROOT`, then
 run:
-
-Then run:
 
 ```sh
 make -B GATES=yes

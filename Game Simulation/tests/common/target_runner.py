@@ -35,6 +35,12 @@ from tests.common.trace_gen import generate_target_suite
 from tests.common.traces import load_trace
 
 MODES = ("coarse", "full")
+EXPECTED_TRACE_COUNTS = {
+    ("1x1", "coarse"): 21,
+    ("1x1", "full"): 21,
+    ("2x1", "coarse"): 24,
+    ("2x1", "full"): 23,
+}
 
 
 @dataclass(frozen=True)
@@ -53,13 +59,15 @@ def start_coords(mode: str) -> tuple[int, int, int]:
     return (100, 540, 240) if mode == "full" else (10, 53, 24)
 
 
-def assert_results_passed(path: Path) -> None:
+def assert_results_passed(path: Path, expected_tests: int) -> None:
     tree = ET.parse(path)
     root = tree.getroot()
     testcases = list(root.iter("testcase"))
     problems = []
-    if not testcases:
-        problems.append("result contains no test cases")
+    if len(testcases) != expected_tests:
+        problems.append(
+            f"expected {expected_tests} test cases, found {len(testcases)}"
+        )
 
     for suite in root.iter("testsuite"):
         for attribute in ("failures", "errors", "skipped"):
@@ -191,7 +199,7 @@ def run_hdl_direct(spec: TargetSpec, trace_path: Path, frames: int,
             "ACHTUNG_HDL_MAP": str(hdl_map),
         },
     )
-    assert_results_passed(results_xml)
+    assert_results_passed(results_xml, 1 if spec.key == "1x1" else 2)
 
 
 def run_game(spec: TargetSpec, trace_path: Path, frames: int | None,
@@ -255,7 +263,7 @@ def run_vga(spec: TargetSpec, full_vga: bool, rows: int | None, rebuild: bool) -
             "ACHTUNG_VGA_EXPECTED_MAP": str(result_dir / "expected_map.txt"),
         },
     )
-    assert_results_passed(results_xml)
+    assert_results_passed(results_xml, 1)
     print(f"PASS {spec.folder} vga {mode} ({frame_w}x{rows_to_check} pixels)")
     print(f"  map: {result_dir / 'captured_map.txt'}")
     return True
@@ -305,7 +313,7 @@ def run_system(spec: TargetSpec, trace_path: Path, frames: int | None, rebuild: 
             "ACHTUNG_HDL_MAP": str(hdl_map),
         },
     )
-    assert_results_passed(results_xml)
+    assert_results_passed(results_xml, 3)
 
     diff = first_difference(python_map, hdl_map)
     if diff is None:
@@ -321,8 +329,12 @@ def run_system(spec: TargetSpec, trace_path: Path, frames: int | None, rebuild: 
 
 def run_suite(spec: TargetSpec, mode: str, frames: int | None, rebuild: bool) -> bool:
     trace_paths = sorted(traces_dir(spec, mode).glob("*.json"))
-    if not trace_paths:
-        raise SystemExit(f"No traces in {traces_dir(spec, mode)}; run with --gen first.")
+    expected_count = EXPECTED_TRACE_COUNTS[(spec.key, mode)]
+    if len(trace_paths) != expected_count:
+        raise SystemExit(
+            f"Expected {expected_count} traces in {traces_dir(spec, mode)}, "
+            f"found {len(trace_paths)}; run with --gen and verify the suite."
+        )
     ok = True
     for index, trace_path in enumerate(trace_paths):
         ok = run_game(spec, trace_path, frames, mode,

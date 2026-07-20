@@ -28,14 +28,23 @@ fi
 # The cocotb Makefile locates cocotb-config through PATH.
 export PATH="$(dirname "$py"):$PATH"
 
-echo "[1/3] Full game, VGA, QSPI PSRAM, input, and arbitration tests"
+echo "[1/5] Full-size game, VGA, QSPI PSRAM, input, and arbitration tests"
 "$py" "Game Simulation/tests/game_2x1/run.py" --test all --rebuild
 
-echo "[2/3] Standalone PSRAM controller and display-streamer tests"
+echo "[2/5] Accelerated coarse game-logic trace suite"
+"$py" "Game Simulation/tests/game_2x1/run.py" --test suite --mode coarse --rebuild
+
+echo "[3/5] Standalone PSRAM controller and display-streamer tests"
 "$py" "Game Simulation/tests/ram/run.py" --target 1x2-working-game --rebuild
 
-echo "[3/3] Tiny Tapeout top-level pin test"
-make -C test clean
-make -C test
+echo "[4/5] Tiny Tapeout top-level pin test"
+(
+  cd test
+  make clean
+  make
+)
+
+echo "[5/5] Hardening-metric policy unit tests"
+"$py" tools/test_check_harden_metrics.py -q
 
 echo "All 1x2 local tests passed."

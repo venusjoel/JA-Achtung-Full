@@ -58,7 +58,7 @@ def run_target(target: str, rebuild: bool) -> None:
             "ACHTUNG_TARGET": target,
         },
     )
-    assert_results_passed(results_xml)
+    assert_results_passed(results_xml, 4)
     print(f"PASS PSRAM {target}")
 
 
@@ -92,17 +92,19 @@ def run_display_target(target: str, rebuild: bool) -> None:
             "ACHTUNG_TARGET": target,
         },
     )
-    assert_results_passed(results_xml)
+    assert_results_passed(results_xml, 2)
     print(f"PASS DISPLAY {target}")
 
 
-def assert_results_passed(path: Path) -> None:
+def assert_results_passed(path: Path, expected_tests: int) -> None:
     tree = ET.parse(path)
     root = tree.getroot()
     testcases = list(root.iter("testcase"))
     problems = []
-    if not testcases:
-        problems.append("result contains no test cases")
+    if len(testcases) != expected_tests:
+        problems.append(
+            f"expected {expected_tests} test cases, found {len(testcases)}"
+        )
 
     for suite in root.iter("testsuite"):
         for attribute in ("failures", "errors", "skipped"):

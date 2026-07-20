@@ -46,9 +46,11 @@ Run the one-time setup, then use the all-tests launcher whenever needed:
 ./test-all
 ```
 
-`./test-all` runs the full game/VGA/system suite, standalone PSRAM-controller
-and display-streamer tests, and the Tiny Tapeout top-level pin test. It stops
-at the first failure and prints a final success message only if all three pass.
+`./test-all` runs the full-size and accelerated coarse game suites, the real
+VGA/QSPI/system path, standalone PSRAM-controller and display-streamer tests,
+the Tiny Tapeout top-level pin test, and unit tests for the hardening-metric
+policy. It stops at the first failure and prints a final success message only
+if every group passes.
 
 The framebuffer is external. Hardware use requires a compatible QSPI PSRAM,
 the Tiny Tapeout VGA PMOD, and the Gamepad PMOD. See `docs/info.md` for the
