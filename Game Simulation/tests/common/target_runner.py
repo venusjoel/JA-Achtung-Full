@@ -91,10 +91,12 @@ def assert_results_passed(path: Path) -> None:
         )
 
 
-def target_src_dir(spec: TargetSpec) -> Path:
-    src_dir = REPO_ROOT / "targets" / spec.target / "src"
+def target_src_dir(_spec: TargetSpec) -> Path:
+    # Always simulate the exact HDL that will be submitted to Tiny Tapeout.
+    # Target snapshots may be useful as references, but they can become stale.
+    src_dir = REPO_ROOT / "src"
     if not src_dir.exists():
-        raise FileNotFoundError(f"Missing target source directory: {src_dir}")
+        raise FileNotFoundError(f"Missing submission source directory: {src_dir}")
     return src_dir
 
 
