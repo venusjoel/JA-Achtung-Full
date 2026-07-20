@@ -1,0 +1,114 @@
+# JA Achtung Full 1x2 - Terasic DE10-Lite (MAX 10 10M50DAF484C7G)
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M50DAF484C7G
+set_global_assignment -name TOP_LEVEL_ENTITY de10_fpga_top
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.0.0
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 16
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+
+# 50 MHz oscillator and active-low buttons.
+set_location_assignment PIN_P11 -to MAX10_CLK1_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MAX10_CLK1_50
+set_location_assignment PIN_B8 -to KEY[0]
+set_location_assignment PIN_A7 -to KEY[1]
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to KEY[0]
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to KEY[1]
+
+# On-board switches are kept in the wrapper for the standard DE10 project.
+set_location_assignment PIN_C10 -to SW[0]
+set_location_assignment PIN_C11 -to SW[1]
+set_location_assignment PIN_D12 -to SW[2]
+set_location_assignment PIN_C12 -to SW[3]
+set_location_assignment PIN_A12 -to SW[4]
+set_location_assignment PIN_B12 -to SW[5]
+set_location_assignment PIN_A13 -to SW[6]
+set_location_assignment PIN_A14 -to SW[7]
+set_location_assignment PIN_B14 -to SW[8]
+set_location_assignment PIN_F15 -to SW[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[9]
+
+# Tiny Tapeout input PMOD socket. Only bits 4-6 are used by the Gamepad PMOD.
+set_location_assignment PIN_W6 -to gamepad_ui[0]
+set_location_assignment PIN_W5 -to gamepad_ui[1]
+set_location_assignment PIN_AA14 -to gamepad_ui[2]
+set_location_assignment PIN_W12 -to gamepad_ui[3]
+set_location_assignment PIN_AA2 -to gamepad_ui[4]
+set_location_assignment PIN_Y3 -to gamepad_ui[5]
+set_location_assignment PIN_Y4 -to gamepad_ui[6]
+set_location_assignment PIN_V5 -to gamepad_ui[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gamepad_ui[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gamepad_ui[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gamepad_ui[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gamepad_ui[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gamepad_ui[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gamepad_ui[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gamepad_ui[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gamepad_ui[7]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to gamepad_ui[0]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to gamepad_ui[1]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to gamepad_ui[2]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to gamepad_ui[3]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to gamepad_ui[4]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to gamepad_ui[5]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to gamepad_ui[6]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to gamepad_ui[7]
+
+# Tiny VGA PMOD / Tiny Tapeout uo[7:0].
+set_location_assignment PIN_V10 -to uo_out[0]
+set_location_assignment PIN_V9 -to uo_out[1]
+set_location_assignment PIN_V8 -to uo_out[2]
+set_location_assignment PIN_V7 -to uo_out[3]
+set_location_assignment PIN_W7 -to uo_out[4]
+set_location_assignment PIN_W8 -to uo_out[5]
+set_location_assignment PIN_W9 -to uo_out[6]
+set_location_assignment PIN_W10 -to uo_out[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to uo_out[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to uo_out[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to uo_out[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to uo_out[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to uo_out[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to uo_out[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to uo_out[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to uo_out[7]
+
+# QSPI PMOD / Tiny Tapeout uio[7:0].
+set_location_assignment PIN_AB12 -to flash_cen
+set_location_assignment PIN_AB11 -to psram_sio[0]
+set_location_assignment PIN_AB10 -to psram_sio[1]
+set_location_assignment PIN_AA9 -to psram_sclk
+set_location_assignment PIN_Y8 -to psram_sio[2]
+set_location_assignment PIN_AA10 -to psram_sio[3]
+set_location_assignment PIN_W11 -to psram_a_cen
+set_location_assignment PIN_Y11 -to psram_b_cen
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to flash_cen
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to psram_sio[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to psram_sio[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to psram_sclk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to psram_sio[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to psram_sio[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to psram_a_cen
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to psram_b_cen
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to psram_sclk
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to psram_a_cen
+
+# Compile the exact Tiny Tapeout submission sources; no mirrored FPGA RTL.
+set_global_assignment -name VERILOG_FILE de10_fpga_top.v
+set_global_assignment -name VERILOG_FILE "../../src/tt_um_ja_achtung_1x2.v"
+set_global_assignment -name VERILOG_FILE "../../src/display_streamer.v"
+set_global_assignment -name VERILOG_FILE "../../src/game_fsm.v"
+set_global_assignment -name VERILOG_FILE "../../src/psram_controller.v"
+set_global_assignment -name VERILOG_FILE "../../src/vga_sync.v"
+set_global_assignment -name VERILOG_FILE "../../src/gamepad_pmod.v"
+set_global_assignment -name SDC_FILE de10_game.sdc

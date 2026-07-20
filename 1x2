@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Convenience launcher for the JA Achtung Full (1x2) game simulation.
+#
+#   ./1x2 --live        play in a window, then replay your run in the HDL and compare
+#   ./1x2 --test vga    lined picture over the real QSPI PSRAM read path
+#   ./1x2 --test suite  every generated game trace vs the Python model
+#   ./1x2 --gen         (re)generate the trace suites
+#   ./1x2               the full default run (vga + suite + system)
+#
+# Every other flag is passed straight through to the runner; "--live" is simply a
+# shorthand for its "--test live". Requires iverilog on PATH and a Python with
+# cocotb (plus pygame for --live). See "Play it live" in README.md.
+#
+# This is a developer convenience only. It is not used by any CI workflow and
+# does not affect the hardware, the Tiny Tapeout test harness, or GDS signoff.
+set -euo pipefail
+
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$here"
+
+# Choose a Python: an active virtualenv, then a repo-local .venv, then python3.
+if [ -n "${VIRTUAL_ENV:-}" ] && [ -x "$VIRTUAL_ENV/bin/python" ]; then
+  py="$VIRTUAL_ENV/bin/python"
+elif [ -x "$here/.venv/bin/python" ]; then
+  py="$here/.venv/bin/python"
+else
+  py="$(command -v python3 || command -v python || true)"
+fi
+if [ -z "${py:-}" ]; then
+  echo "No Python found. Install Python 3, then: pip install cocotb pygame" >&2
+  exit 1
+fi
+
+# Fail early with a clear hint if the test dependencies are missing.
+if ! "$py" -c "import cocotb" 2>/dev/null; then
+  echo "cocotb is not installed for: $py" >&2
+  echo "  \"$py\" -m pip install cocotb pygame   # pygame only needed for --live" >&2
+  exit 1
+fi
+
+# Translate the friendly "--live" shorthand into the runner flag "--test live".
+argv=()
+for arg in "$@"; do
+  case "$arg" in
+    --live) argv+=(--test live) ;;
+    *)      argv+=("$arg") ;;
+  esac
+done
+
+exec "$py" "Game Simulation/tests/game_2x1/run.py" ${argv[@]+"${argv[@]}"}

@@ -48,3 +48,31 @@ cd test && make -B
 The framebuffer is external. Hardware use requires a compatible QSPI PSRAM,
 the Tiny Tapeout VGA PMOD, and the Gamepad PMOD. See `docs/info.md` for the
 power-up sequence and pinout.
+
+## Play it live
+
+You can play the game yourself and have the hardware checked against your run.
+From the repo root, in an environment with `iverilog` and a Python that has
+`cocotb` and `pygame`:
+
+```sh
+./1x2 --live
+```
+
+A window opens on the colour-selection lobby, records your play, then replays
+the exact inputs through the Verilog and diffs the hardware output against the
+Python model. In the lobby, player 1 moves with `A`/`D`, locks with `W`, and
+unlocks with `S`; player 2 uses the arrows, `Up`, and `Down`; press `Enter`
+once both players have locked. In game, `A`/`D` steer player 1 and the
+left/right arrows steer player 2, with `W` and `Up` for boost; `Esc` or `Q`
+ends the recording. Add `--mode coarse` for a quick low-resolution session.
+
+`./1x2` forwards every other runner flag too (`--test vga`, `--test suite`,
+`--gen`, …). It is a developer convenience only — no CI workflow uses it and it
+does not affect the hardware, the Tiny Tapeout test harness, or GDS signoff.
+
+## DE10-Lite FPGA
+
+The [`fpga/`](fpga/) folder contains a reproducible Intel Quartus project that
+builds and programs this exact `src/` RTL on a Terasic DE10-Lite. It also lists
+the required VGA, QSPI PSRAM, and Gamepad PMOD wiring.

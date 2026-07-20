@@ -28,3 +28,11 @@ __pycache__/
 sim_builds/
 Game Simulation/tests/out/
 .worktrees/
+fpga/de10-lite/db/
+fpga/de10-lite/incremental_db/
+fpga/de10-lite/output_files/
+fpga/de10-lite/*.qws
+fpga/de10-lite/*.smsg
+fpga/de10-lite/*.jdi
+fpga/de10-lite/*.cdf
+fpga/de10-lite/*.bak
