@@ -39,11 +39,16 @@ traffic, and arbitration.
 
 ## Local tests
 
+Run the one-time setup, then use the all-tests launcher whenever needed:
+
 ```sh
-python "Game Simulation/tests/game_2x1/run.py" --test all --rebuild
-python "Game Simulation/tests/ram/run.py" --target 1x2-working-game --rebuild
-cd test && make -B
+./setup-live
+./test-all
 ```
+
+`./test-all` runs the full game/VGA/system suite, standalone PSRAM-controller
+and display-streamer tests, and the Tiny Tapeout top-level pin test. It stops
+at the first failure and prints a final success message only if all three pass.
 
 The framebuffer is external. Hardware use requires a compatible QSPI PSRAM,
 the Tiny Tapeout VGA PMOD, and the Gamepad PMOD. See `docs/info.md` for the

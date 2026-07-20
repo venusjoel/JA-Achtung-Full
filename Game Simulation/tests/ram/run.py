@@ -22,14 +22,14 @@ SIM_TIMESCALE = ("1ns", "1ps")
 
 
 def source_for_target(target: str) -> Path:
-    path = REPO_ROOT / "targets" / target / "src" / "psram_controller.v"
+    path = REPO_ROOT / "src" / "psram_controller.v"
     if not path.exists():
         raise FileNotFoundError(path)
     return path
 
 
 def display_source_for_target(target: str) -> Path:
-    path = REPO_ROOT / "targets" / target / "src" / "display_streamer.v"
+    path = REPO_ROOT / "src" / "display_streamer.v"
     if not path.exists():
         raise FileNotFoundError(path)
     return path

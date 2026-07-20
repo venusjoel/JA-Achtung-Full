@@ -5,23 +5,27 @@ set -euo pipefail
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 venv_dir="$HOME/.venvs/ja-achtung"
 
-if ! command -v iverilog >/dev/null 2>&1; then
+missing_packages=()
+command -v iverilog >/dev/null 2>&1 || missing_packages+=(iverilog)
+command -v make >/dev/null 2>&1 || missing_packages+=(make)
+
+if [ "${#missing_packages[@]}" -ne 0 ]; then
   if command -v apt-get >/dev/null 2>&1; then
-    echo "Installing Icarus Verilog..."
+    echo "Installing Linux test tools: ${missing_packages[*]}..."
     if [ "$(id -u)" -eq 0 ]; then
       apt-get update
-      apt-get install -y iverilog
+      apt-get install -y "${missing_packages[@]}"
     elif command -v sudo >/dev/null 2>&1; then
       sudo apt-get update
-      sudo apt-get install -y iverilog
+      sudo apt-get install -y "${missing_packages[@]}"
     else
-      echo "Icarus Verilog is missing and sudo is unavailable." >&2
-      echo "Install the 'iverilog' package, then run ./setup-live again." >&2
+      echo "Linux test tools are missing and sudo is unavailable." >&2
+      echo "Install: ${missing_packages[*]}; then run ./setup-live again." >&2
       exit 1
     fi
   else
-    echo "Icarus Verilog is missing." >&2
-    echo "Install 'iverilog' with your Linux package manager, then run ./setup-live again." >&2
+    echo "Linux test tools are missing: ${missing_packages[*]}." >&2
+    echo "Install them with your package manager, then run ./setup-live again." >&2
     exit 1
   fi
 fi
@@ -63,3 +67,4 @@ echo "Installing the pinned live-test packages..."
 echo
 echo "Setup complete. From this folder, run:"
 echo "  ./1x2 --live"
+echo "  ./test-all"

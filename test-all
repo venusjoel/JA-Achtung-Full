@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Run the complete local 1x2 RTL verification set.
+set -euo pipefail
+
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$here"
+
+if ! command -v iverilog >/dev/null 2>&1 || ! command -v make >/dev/null 2>&1; then
+  echo "Test tools are missing. Run ./setup-live once, then retry ./test-all." >&2
+  exit 1
+fi
+
+if [ -x "$here/.venv/bin/python" ]; then
+  py="$here/.venv/bin/python"
+elif [ -x "$HOME/.venvs/ja-achtung/bin/python" ]; then
+  py="$HOME/.venvs/ja-achtung/bin/python"
+elif [ -n "${VIRTUAL_ENV:-}" ] && [ -x "$VIRTUAL_ENV/bin/python" ]; then
+  py="$VIRTUAL_ENV/bin/python"
+else
+  py="$(command -v python3 || command -v python || true)"
+fi
+
+if [ -z "${py:-}" ] || ! "$py" -c "import cocotb" 2>/dev/null; then
+  echo "The test environment is not ready. Run ./setup-live once." >&2
+  exit 1
+fi
+
+# The cocotb Makefile locates cocotb-config through PATH.
+export PATH="$(dirname "$py"):$PATH"
+
+echo "[1/3] Full game, VGA, QSPI PSRAM, input, and arbitration tests"
+"$py" "Game Simulation/tests/game_2x1/run.py" --test all --rebuild
+
+echo "[2/3] Standalone PSRAM controller and display-streamer tests"
+"$py" "Game Simulation/tests/ram/run.py" --target 1x2-working-game --rebuild
+
+echo "[3/3] Tiny Tapeout top-level pin test"
+make -C test clean
+make -C test
+
+echo "All 1x2 local tests passed."
