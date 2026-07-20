@@ -191,6 +191,18 @@ class Curved2x1Model:
         counter = self.p1_gap_counter if player == 0 else self.p2_gap_counter
         return counter >= 224
 
+    def gap_head_position(self, player: int) -> tuple[int, int] | None:
+        """Return the live head position while the display-only gap marker is on."""
+        if player == 0:
+            alive, x_fp, y_fp = self.p1_alive, self.p1_x_fp, self.p1_y_fp
+        elif player == 1:
+            alive, x_fp, y_fp = self.p2_alive, self.p2_x_fp, self.p2_y_fp
+        else:
+            raise ValueError(f"Invalid player index: {player}")
+        if not alive or not self._gap_active(player):
+            return None
+        return x_fp >> 6, y_fp >> 6
+
     def _advance_gap_counter(self, player: int) -> None:
         if player == 0:
             self.p1_gap_counter = (self.p1_gap_counter + 1) & 0xFF

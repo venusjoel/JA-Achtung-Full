@@ -99,12 +99,20 @@ def record_live_trace(target: str, trace_path: str | Path, *, frames: int | None
             return WHITE
         return p1_color if value == 1 else p2_color
 
-    def present(lines: list[str] | None = None, overlays=()) -> None:
+    def present(lines: list[str] | None = None, overlays=(), head_marker=None) -> None:
         frame = base
-        if overlays:
+        if overlays or head_marker is not None:
             frame = base.copy()
             for overlay in overlays:
                 frame.blit(overlay, (0, 0))
+            if head_marker is not None:
+                head_x, head_y, head_color = head_marker
+                # The HDL compares every coordinate except bit zero, producing
+                # one aligned 2x2 display-only block without touching PSRAM.
+                pygame.draw.rect(
+                    frame, head_color,
+                    (head_x & ~1, head_y & ~1, 2, 2),
+                )
         screen.blit(scaler(frame, screen.get_size()), (0, 0))
         if lines:
             font = pygame.font.SysFont(None, 30)
@@ -143,6 +151,7 @@ def record_live_trace(target: str, trace_path: str | Path, *, frames: int | None
             present(["Click window, then press any key to start"])
             clock.tick(30)
 
+    display_phase = False
     while running and len(recorded) < frames and not getattr(model, "game_over", False):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -166,7 +175,20 @@ def record_live_trace(target: str, trace_path: str | Path, *, frames: int | None
                 overlays.append(flash[1])
             if buttons & P2_BOOST:
                 overlays.append(flash[2])
-        present(overlays=overlays)
+
+        head_marker = None
+        if is_2x1:
+            p1_head = model.gap_head_position(0)
+            p2_head = model.gap_head_position(1)
+            # The real top shares one marker. If both gaps overlap, its
+            # once-per-frame phase alternates which player's head is shown.
+            if p2_head is not None and (p1_head is None or display_phase):
+                head_marker = (*p2_head, WHITE if buttons & P2_BOOST else p2_color)
+            elif p1_head is not None:
+                head_marker = (*p1_head, WHITE if buttons & P1_BOOST else p1_color)
+
+        present(overlays=overlays, head_marker=head_marker)
+        display_phase = not display_phase
         clock.tick(fps)
 
     if is_2x1 and getattr(model, "game_over", False):
