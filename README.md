@@ -5,6 +5,21 @@ This repository is the standalone two-tile version of our two-player
 movement, boost, passable trail gaps, a color-selection lobby, a 2-bit
 external QSPI PSRAM framebuffer, and direct 640×480 VGA.
 
+## Hardware at a glance
+
+<p align="center">
+  <img src="docs/images/gds-layout.png" alt="Final routed GDS layout of the JA Achtung Full 1x2 Tiny Tapeout design" width="540">
+</p>
+
+<p align="center">
+  <em>Current main-branch SKY130 layout, rendered directly from the latest successful GDS workflow.</em><br>
+  <a href="https://venusjoel.github.io/JA-Achtung-Full/">Explore the interactive 3D GDS</a>
+</p>
+
+| Tiny Tapeout footprint | Standard-cell area | Final utilization | Physical signoff |
+| :---: | ---: | ---: | :---: |
+| 1×2 tiles | 31,468.9 µm² | 91.8657% | 0 DRC/LVS/antenna violations |
+
 ## Project portfolio
 
 For a visual, employer-friendly overview of both the 1x1 and 1x2 designs:
@@ -25,6 +40,16 @@ The Tiny Tapeout project is entirely at the repository root:
 
 The simulation folder retains its historical `game_2x1` name; the official
 Tiny Tapeout footprint in `info.yaml` is `1x2`.
+
+## System architecture
+
+<p align="center">
+  <img src="docs/images/system-architecture.png" alt="JA Achtung architecture showing the controllers, game FSM, VGA pipeline, clocking, and external QSPI PSRAM" width="900">
+</p>
+
+Both versions stream the framebuffer through external QSPI PSRAM instead of
+trying to store a full 640×480 frame in on-chip flip-flops. The 1x2 design
+uses the extra tile for richer movement, gameplay features, and 2-bit color.
 
 ## Validation baseline
 
