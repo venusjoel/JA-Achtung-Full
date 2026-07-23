@@ -5,6 +5,15 @@ This repository is the standalone two-tile version of our two-player
 movement, boost, passable trail gaps, a color-selection lobby, a 2-bit
 external QSPI PSRAM framebuffer, and direct 640×480 VGA.
 
+## Project portfolio
+
+For a visual, employer-friendly overview of both the 1x1 and 1x2 designs:
+
+- [Presentation slides (PDF)](docs/portfolio/JA-Achtung-Project-Presentation.pdf)
+- [Final project report (PDF)](docs/portfolio/JA-Achtung-Final-Report.pdf)
+- [Download the PowerPoint with embedded demonstration videos](docs/portfolio/JA-Achtung-Project-Presentation.pptx)
+- [Portfolio index and editable source files](docs/portfolio/)
+
 The Tiny Tapeout project is entirely at the repository root:
 
 - `src/`: exact 1x2 HDL and LibreLane configuration
